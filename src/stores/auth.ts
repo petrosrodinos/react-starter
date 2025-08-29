@@ -10,7 +10,6 @@ interface UserStore extends LoggedInUser {
 
 const initialValues: UserStore = {
     isLoggedIn: false,
-    isNewUser: true,
     user_uuid: null,
     role: null,
     full_name: "",

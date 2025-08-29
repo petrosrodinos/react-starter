@@ -18,7 +18,6 @@ export interface LoggedInUser {
     expires_in: number | null;
     avatar?: string | null;
     full_name?: string | null;
-    isNewUser?: boolean | null;
     isLoggedIn?: boolean | null;
 }
 
