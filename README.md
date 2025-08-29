@@ -1,69 +1,54 @@
-# React + TypeScript + Vite
+# 🚀 React Vite Starter
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern starter template for building React applications with **Vite**, **Shadcn**, **Tailwind CSS** and a set of tools for forms, state management, data fetching, and UI components.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🔧 Core Technologies
 
-## Expanding the ESLint configuration
+### ⚡ Framework & Tooling
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **[React](https://react.dev/)** – Component-based UI library.
+- **[Vite](https://vitejs.dev/)** – Lightning-fast bundler and development server.
+- **[TypeScript](https://www.typescriptlang.org/)** – Static typing for safer code. Linting and code quality.
+- **[@vitejs/plugin-react](https://vitejs.dev/plugins/)** – React Fast Refresh & JSX optimizations.
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### 🎨 Styling & UI Components
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+- **[shadcn/ui](https://ui.shadcn.com/)** – Beautifully designed components built with Radix primitives and Tailwind.
+- **[Tailwind CSS](https://tailwindcss.com/)** – Utility-first CSS framework.
+- **[lucide-react](https://lucide.dev/)** + **[@tabler/icons-react](https://tabler-icons.io/)** – Icon sets.
+- **[tw-animate-css](https://www.npmjs.com/package/tw-animate-css)** – Animate.css integration with Tailwind.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### 📦 State & Data
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- **[Zustand](https://zustand-demo.pmnd.rs/)** – Lightweight state management.
+- **[TanStack Query](https://tanstack.com/query/v5)** – Data fetching, caching, and synchronization.
+- **[Axios](https://axios-http.com/)** – HTTP client for API requests.
+- **[uuid](https://github.com/uuidjs/uuid)** – Unique identifier generation.
+- **[date-fns](https://date-fns.org/)** – Modern date utility library.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### 📝 Forms & Validation
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- **[react-hook-form](https://react-hook-form.com/)** – Performant form management.
+- **[zod](https://zod.dev/)** – Type-safe schema validation.
+
+---
+
+## ⚙️ Development
+
+### Scripts
+
+```bash
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
+
+# Lint code
+npm run lint
 ```
