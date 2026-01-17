@@ -2,20 +2,13 @@ import { IconCheck, IconMoon, IconSun } from "@tabler/icons-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import { useState } from "react";
+import { useTheme } from "@/hooks/use-theme";
 
 export function ThemeSwitch() {
-  const [theme, setTheme] = useState("light");
+  const { theme, setTheme } = useTheme();
 
-  // useEffect(() => {
-  //   const themeColor = theme === "dark" ? "#020817" : "#fff";
-  //   const metaThemeColor = document.querySelector("meta[name='theme-color']");
-  //   if (metaThemeColor) metaThemeColor.setAttribute("content", themeColor);
-  // }, [theme]);
-
-  const handleThemeChange = (theme: string) => {
-    setTheme(theme);
-    document.documentElement.classList.toggle("dark", theme === "dark");
+  const handleThemeChange = (newTheme: string) => {
+    setTheme(newTheme as "light" | "dark" | "system");
   };
 
   return (

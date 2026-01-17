@@ -16,6 +16,11 @@ use snake_case for object keys,interfaces
 use camelCase for function names, functionparameters,variable names and hooks
 use PascalCase for component names
 use kebab-case for file names
+always use zod and react-hook-form for validation
+always use zod for validation and place it at separate files in the validation-schemas folder
+never add comments
+always use shadcn skeletons when loading data and add it at a the parents component folder as a separate file
+always use luxon for date and time manipulation
 
 Folder structure
 
@@ -34,6 +39,7 @@ Folder structure
       - user-card.tsx
       - user-list.tsx
       - user-form.tsx
+      - user-loading.tsx
     - pages/
       - user-page.tsx
       - user-list-page.tsx

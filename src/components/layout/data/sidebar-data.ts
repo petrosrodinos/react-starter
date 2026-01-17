@@ -11,20 +11,20 @@ import {
 import { Command, CreditCard } from "lucide-react";
 import { type SidebarData } from "../types";
 import { Routes } from "@/routes/routes";
-import { APP_NAME } from "@/constants";
 import { RoleTypes } from "@/features/user/interfaces/user.interface";
+import { environments } from "@/config/environments";
 
 export const sidebarData: SidebarData = {
   teams: [
     {
-      name: APP_NAME,
+      name: environments.APP_NAME,
       logo: Command,
       plan: "Vite + ShadcnUI",
     },
   ],
   navGroups: [
     {
-      access: RoleTypes.admin,
+      access: [RoleTypes.ADMIN],
       title: "Admin",
       items: [
         {

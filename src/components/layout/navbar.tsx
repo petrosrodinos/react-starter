@@ -7,7 +7,7 @@ import { useAuthStore } from "@/stores/auth";
 import Logo from "@/assets/favicon.ico";
 import { Suspense } from "react";
 import { ThemeSwitch } from "../ui/theme-switch";
-import { APP_NAME, PUBLIC_SITE_URL } from "@/constants";
+import { environments } from "@/config/environments";
 
 interface MenuItem {
   title: string;
@@ -54,25 +54,25 @@ const NavbarContent = ({
     url: "/",
     src: Logo,
     alt: "logo",
-    title: APP_NAME,
+    title: environments.APP_NAME,
   },
   menu = [
     { title: "Home", url: "#hero" },
     {
       title: "Templates",
-      url: `${PUBLIC_SITE_URL}/#templates`,
+      url: `${environments.LANDING_URL}/#templates`,
     },
     {
       title: "Pricing",
-      url: `${PUBLIC_SITE_URL}/#pricing`,
+      url: `${environments.LANDING_URL}/#pricing`,
     },
     {
       title: "Roadmap",
-      url: `${PUBLIC_SITE_URL}/#roadmap`,
+      url: `${environments.LANDING_URL}/#roadmap`,
     },
     {
       title: "Contact",
-      url: `${PUBLIC_SITE_URL}/#contact`,
+      url: `${environments.LANDING_URL}/#contact`,
     },
   ],
   auth = {

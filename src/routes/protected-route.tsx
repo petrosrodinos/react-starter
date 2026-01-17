@@ -21,7 +21,7 @@ export default function ProtectedRoute({ children, requiredRoles, loggedIn, fall
     return <Navigate to={"/dashboard"} replace />;
   }
 
-  if (requiredRoles && !requiredRoles.includes(role || RoleTypes.user)) {
+  if (requiredRoles && !requiredRoles.includes(role || RoleTypes.USER)) {
     return <Navigate to={fallbackPath} replace />;
   }
 

@@ -3,18 +3,17 @@ import { NavGroup } from "@/components/layout/nav-group";
 import { NavUser } from "@/components/layout/nav-user";
 import { TeamSwitcher } from "@/components/layout/team-switcher";
 import { sidebarData } from "./data/sidebar-data";
-import { RoleTypes } from "@/features/user/interfaces/user.interface";
+import { RoleTypes, type RoleType } from "@/features/user/interfaces/user.interface";
 import { useAuthStore } from "@/stores/auth";
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const { role } = useAuthStore();
-  const isAdmin = role === RoleTypes.admin;
-
+  
   const navGroups = sidebarData.navGroups.filter((group) => {
-    if (isAdmin && group.access === "admin") {
+    if (role && (group.access?.includes(role as RoleType) || role === RoleTypes.SUPER_ADMIN)) {
       return true;
     }
-    return group.access !== "admin";
+    return false;
   });
 
   return (

@@ -1,11 +1,10 @@
-export const API_URL = import.meta.env.VITE_API_URL;
-
 export const ApiRoutes = {
     auth: {
-        prefix: "/auth",
         email: {
-            login: "/auth/login",
-            register: "/auth/register",
+            login: "/auth/email/login",
+            register: "/auth/email/register",
+            refresh_token: "/auth/email/refresh-token",
+            admin_login_to_account: (account_uuid: string) => `/auth/email/${account_uuid}/admin-login`,
             forgot_password: "/auth/forgot-password",
             reset_password: "/auth/reset-password",
             verify_email: "/auth/verify-email",

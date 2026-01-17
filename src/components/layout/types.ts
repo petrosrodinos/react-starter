@@ -1,3 +1,4 @@
+import type { RoleType } from "@/features/user/interfaces/user.interface";
 
 interface Team {
   name: string;
@@ -24,7 +25,7 @@ type NavCollapsible = BaseNavItem & {
 type NavItem = NavCollapsible | NavLink;
 
 interface NavGroup {
-  access?: "admin" | "user";
+  access?: RoleType[];
   title: string;
   items: NavItem[];
 }
