@@ -3,6 +3,7 @@ export interface AutocompleteAddress {
     coordinates: Coordinates;
     country: string;
     city: string;
+    area: string;
     postalCode: string;
     street: string;
     streetNumber: string;

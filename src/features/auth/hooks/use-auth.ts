@@ -1,6 +1,5 @@
-import { signIn } from "../services/auth";
+import { adminLoginToAccount, refreshAccountToken, signIn, signUp } from "../services/auth";
 import { useMutation } from "@tanstack/react-query";
-import { signUp } from "../services/auth";
 import { useAuthStore } from "@/stores/auth";
 import { useNavigate } from "react-router-dom";
 import type { SignInUser, SignUpUser } from "../interfaces/auth.interface";
@@ -66,4 +65,42 @@ export function useSignup() {
             });
         },
     });
-} 
+}
+
+
+export function useRefreshAccountToken() {
+    const { login } = useAuthStore((state) => state);
+    return useMutation({
+        mutationFn: () => refreshAccountToken(),
+        onSuccess: (data: LoggedInUser) => {
+            login({ ...data, isLoggedIn: true });
+        },
+    });
+}
+
+export function useAdminLoginToAccount() {
+    const { login } = useAuthStore((state) => state);
+
+    return useMutation({
+        mutationFn: (account_uuid: string) => adminLoginToAccount(account_uuid),
+        onSuccess: (data: LoggedInUser) => {
+            toast({
+                title: "Admin login successful",
+                description: "You have successfully logged in as admin",
+                duration: 2000,
+            });
+            login({
+                ...data,
+                isLoggedIn: true,
+            });
+        },
+        onError: (error: any) => {
+            toast({
+                title: "Could not admin login to account",
+                description: error.message,
+                duration: 3000,
+                variant: "error",
+            });
+        },
+    });
+}
